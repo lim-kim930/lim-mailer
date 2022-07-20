@@ -2,7 +2,7 @@
   "name": "lim-mailer",
   "version": "1.0.0",
   "description": "A simple package mailer based on nodemailer",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test-ts": "ts-node-dev example/index.ts",
     "test-node": "node example/index.js",
@@ -12,9 +12,13 @@
     "node",
     "email",
     "nodemailer",
-    "gmail",
     "mailer"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lim-kim930/lim-mailer"
+  },
+  "homepage": "https://github.com/lim-kim930/lim-mailer#readme",
   "author": "LIMKIM",
   "license": "MIT",
   "devDependencies": {
