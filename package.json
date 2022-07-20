@@ -1,0 +1,29 @@
+{
+  "name": "lim-mailer",
+  "version": "1.0.0",
+  "description": "A simple package mailer based on nodemailer",
+  "main": "index.js",
+  "scripts": {
+    "test": "ts-node-dev test/index.ts",
+    "serve": "ts-node-dev src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [
+    "node",
+    "email",
+    "nodemailer",
+    "gmail",
+    "mailer"
+  ],
+  "author": "LIMKIM",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.4",
+    "@types/ws": "^8.5.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "nodemailer": "^6.7.7"
+  }
+}
