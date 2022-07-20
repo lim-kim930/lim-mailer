@@ -4,8 +4,8 @@
   "description": "A simple package mailer based on nodemailer",
   "main": "index.js",
   "scripts": {
-    "test-ts": "ts-node-dev test/index.ts",
-    "test-node": "ts-node-dev test/index.ts",
+    "test-ts": "ts-node-dev example/index.ts",
+    "test-node": "node example/index.js",
     "build": "tsc"
   },
   "keywords": [

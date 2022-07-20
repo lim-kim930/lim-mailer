@@ -1,4 +1,4 @@
-const LimMailer = require("./index");
+const { default: LimMailer} = require("../dist/index");
 const fs = require("fs");
 
 const json = fs.readFileSync(__dirname + "/config.json", "utf8");
