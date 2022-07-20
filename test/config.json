@@ -17,7 +17,7 @@
 
     "content": {
         "subject": "A Test",
-        "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930'>LimMailer</a></h1>"
+        "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930/lim-emailer'>LimMailer</a></h1>"
 
     }
 }
