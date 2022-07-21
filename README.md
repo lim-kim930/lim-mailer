@@ -4,8 +4,6 @@
 
 ##### More intuitive and convenient.
 
-
-
 ## Installation
 
 ##### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
@@ -16,19 +14,17 @@ npm install lim-mailer
 
 ## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
 
-##### This is a simple function released with the npm package, with a small amount of code.
+### This is a simple function released with the npm package, with a small amount of code.
 
-##### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#example), I believe they will help you get started faster.
+### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#example), I believe they will help you get started faster.
 
-##### Please Note:
+### Please Note:
 
 - When you have usage problems in development, using test can help you troubleshoot the package itself.
 
 - Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
 
- 
-
-#### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
+### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
 
 ```javascript
 // test/config.json
@@ -57,25 +53,25 @@ npm install lim-mailer
 }
 ```
 
-#### Then you can use the npm command to run the tests
+### Then you can use the npm command to run the tests
 
-- ###### For Commonjs
+- ##### For Commonjs
 
 ```
 npm run test
 ```
 
-- ###### For Typescript
+- ##### For Typescript
 
 ```
 npm run test-ts
 ```
 
-#### [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
+## [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
 
-##### This is a complete example to send an email with plain text and HTML body.
+### This is a complete example to send an email with plain text and HTML body.
 
-- ###### Commonjs
+- ##### Commonjs
 
 ```javascript
 // app.js
@@ -92,7 +88,7 @@ mailer.sendMail(config.content).then(() => {
 }) 
 ```
 
-- ###### Typescript
+- ##### Typescript
 
 ```javascript
 import LimMailer from "lim-mailer";
@@ -106,4 +102,4 @@ mailer.sendMail(config.content).then((info) => {
 })
 ```
 
-### Documentation
+## Documentation
