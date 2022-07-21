@@ -1,190 +1,109 @@
 # lim-emailer
 
-##### A simple package mailer based on nodemailer.
+#### A simple package mailer based on nodemailer.
 
-###### More intuitive and convenient.
+##### More intuitive and convenient.
 
 
 
-#### Installation
+## Installation
 
-LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
+##### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
 
 ```
 npm install lim-mailer
 ```
 
-#### [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
+## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
 
-This is a complete example to send an email with plain text.
+##### This is a simple function released with the npm package, with a small amount of code.
 
-```javascript
-"use strict";
-const nodemailer = require("nodemailer");
+##### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#example), I believe they will help you get started faster.
 
-// async..await is not allowed in global scope, must use a wrapper
-async function main() {
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
+##### Please Note:
 
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
-  });
+- When you have usage problems in development, using test can help you troubleshoot the package itself.
 
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "bar@example.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
+- Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
 
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+ 
 
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-}
-
-main().catch(console.error);
-```
-
-
-
-#### [Example](https://github.com/lim-kim930/lim-mailer/tree/main/example)
-
-This is a complete example to send an email with plain text.
+#### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
 
 ```javascript
-"use strict";
-const nodemailer = require("nodemailer");
-
-// async..await is not allowed in global scope, must use a wrapper
-async function main() {
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
-
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+// test/config.json
+{
+    "outbox": {
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "secure": true,
+        // Google Mail requires two-step verification：https://myaccount.google.com/security
+        // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
+        "auth": {
+            "user": "",
+            "pass": ""
+        },
+        "alias": "LimMailer"
     },
-  });
 
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "bar@example.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
+    "inbox": {
+        "to": []
+    },
 
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    "content": {
+        "subject": "A Test",
+        "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930/lim-emailer'>LimMailer</a></h1>"
+    }
 }
-
-main().catch(console.error);
 ```
 
-## Typescript
+#### Then you can use the npm command to run the tests
 
-```js
-app.use(async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+- ###### For Commonjs
+
+```
+npm run test
 ```
 
-### [](https://www.npmjs.com/package/koa#common-function)
+- ###### For Typescript
 
-```js
-// Middleware normally takes two parameters (ctx, next), ctx is the context for one request,
-// next is a function that is invoked to execute the downstream middleware. It returns a Promise with a then function for running code after completion.
-
-app.use((ctx, next) => {
-  const start = Date.now();
-  return next().then(() => {
-    const ms = Date.now() - start;
-    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-  });
-});
+```
+npm run test-ts
 ```
 
-### [](https://www.npmjs.com/package/koa#koa-v1x-middleware-signature)Koa v1.x Middleware Signature
+#### [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
 
-The middleware signature changed between v1.x and v2.x. The older signature is deprecated.
+##### This is a complete example to send an email with plain text and HTML body.
 
-**Old signature middleware support will be removed in v3**
+- ###### Commonjs
 
-Please see the [Migration Guide](https://github.com/koajs/koa/blob/HEAD/docs/migration.md) for more information on upgrading from v1.x and using v1.x middleware with v2.x.
+```javascript
+// app.js
+"use strict";
+const LimMailer = require("lim-mailer");
 
-## [](https://www.npmjs.com/package/koa#context-request-and-response)Context, Request and Response
+const mailer = new LimMailer(config.outbox);
 
-Each middleware receives a Koa `Context` object that encapsulates an incoming http message and the corresponding response to that message. `ctx` is often used as the parameter name for the context object.
-
-```js
-app.use(async (ctx, next) => { await next(); });
+mailer.setInbox(config.inbox);
+mailer.sendMail(config.content).then(() => {
+    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess!\x1B[0m");
+}).catch((err) => {
+    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[31merror: \x1B[0m" + err);
+}) 
 ```
 
-Koa provides a `Request` object as the `request` property of the `Context`.  
-Koa's `Request` object provides helpful methods for working with http requests which delegate to an [IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage) from the node `http` module.
+- ###### Typescript
 
-Here is an example of checking that a requesting client supports xml.
+```javascript
+import LimMailer from "lim-mailer";
 
-```js
-app.use(async (ctx, next) => {
-  ctx.assert(ctx.request.accepts('xml'), 406);
-  // equivalent to:
-  // if (!ctx.request.accepts('xml')) ctx.throw(406);
-  await next();
-});
+const mailer = new LimMailer(config.outbox);
+mailer.setInbox(config.inbox);
+mailer.sendMail(config.content).then((info) => {
+    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess!\x1B[0m");
+}).catch((err: Error) => {
+    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[31merror: \x1B[0m" + err);
+})
 ```
 
-Koa provides a `Response` object as the `response` property of the `Context`.  
-Koa's `Response` object provides helpful methods for working with http responses which delegate to a [ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse) .
-
-Koa's pattern of delegating to Node's request and response objects rather than extending them provides a cleaner interface and reduces conflicts between different middleware and with Node itself as well as providing better support for stream handling. The `IncomingMessage` can still be directly accessed as the `req` property on the `Context` and `ServerResponse` can be directly accessed as the `res` property on the `Context`.
-
-Here is an example using Koa's `Response` object to stream a file as the response body.
-
-```js
-app.use(async (ctx, next) => {
-  await next();
-  ctx.response.type = 'xml';
-  ctx.response.body = fs.createReadStream('really_large.xml');
-});
-```
-
-The `Context` object also provides shortcuts for methods on its `request` and `response`. In the prior examples, `ctx.type` can be used instead of `ctx.response.type` and `ctx.accepts` can be used instead of `ctx.request.accepts`.
-
-For more information on `Request`, `Response` and `Context`, see the [Request API Reference](https://github.com/koajs/koa/blob/HEAD/docs/api/request.md), [Response API Reference](https://github.com/koajs/koa/blob/HEAD/docs/api/response.md) and [Context API Reference](https://github.com/koajs/koa/blob/HEAD/docs/api/context.md).
-
-## [](https://www.npmjs.com/package/koa#koa-application)Koa Application
-
-The object created when executing `new Koa()` is known as the Koa application object.
-
-The application object is Koa's interface with node's http server and handles the registration of middleware, dispatching to the middleware from http, default error handling, as well as configuration of the context, request and response objects.
-
-Learn more about the application object in the [Application API Reference](https://github.com/koajs/koa/blob/HEAD/docs/api/index.md).
+### Documentation

@@ -1,17 +1,8 @@
-import LimMailer from "../src";
-import fs from "fs"
-
-// Google Mail requires two-step verification：https://myaccount.google.com/security
-// Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
-
-const json = fs.readFileSync(__dirname + "/config.json", "utf8");
-
-const config = JSON.parse(json);
+import LimMailer from "lim-mailer";
 
 const mailer = new LimMailer(config.outbox);
 
 mailer.setInbox(config.inbox);
-
 mailer.sendMail(config.content).then((info) => {
     console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess!\x1B[0m");
 }).catch((err: Error) => {
