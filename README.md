@@ -16,7 +16,7 @@ npm install lim-mailer
 
 #### This is a simple function released with the npm package, with a small amount of code.
 
-#### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#example), I believe they will help you get started faster.
+#### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#examples), I believe they will help you get started faster.
 
 #### Please Note:
 
