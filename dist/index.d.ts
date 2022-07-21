@@ -20,7 +20,7 @@ interface MailContent {
     to?: Inbox["to"];
     cc?: Inbox["cc"];
 }
-export default class LimMailer {
+declare class LimMailer {
     private outbox;
     private transporter;
     private inbox;
@@ -31,4 +31,4 @@ export default class LimMailer {
     get outboxAddress(): string | undefined;
     get inboxAddress(): string | string[] | undefined;
 }
-export {};
+export = LimMailer;

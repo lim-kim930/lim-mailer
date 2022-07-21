@@ -4,20 +4,19 @@
         "port": 465,
         "secure": true,
         "auth": {
-            "user": "1625753207lim@gmail.com",
-            "pass": "lknvytxxmwgouylx"
+            "user": "",
+            "pass": ""
             
         },
         "alias": "LimMailer"
     },
 
     "inbox": {
-        "to": ["1625753207@qq.com"]
+        "to": []
     },
 
     "content": {
         "subject": "A Test",
         "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930/lim-emailer'>LimMailer</a></h1>"
-
     }
 }

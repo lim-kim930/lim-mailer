@@ -40,7 +40,7 @@ const emailAddressValidator = (address: string | string[] | undefined) => {
     return reg.test(address);
 };
 
-export default class LimMailer {
+class LimMailer {
     private outbox: Outbox | undefined;
     private transporter: Transporter | undefined;
     private inbox: Inbox | undefined;
@@ -121,3 +121,5 @@ export default class LimMailer {
     }
 
 }
+
+export = LimMailer;
