@@ -1,4 +1,4 @@
-# lim-emailer
+# lim-mailer
 
 #### A simple package mailer based on nodemailer.
 
