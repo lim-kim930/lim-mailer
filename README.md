@@ -85,7 +85,7 @@ const mailer = new LimMailer({
         // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
         user: "", // generated Gmail user
         pass: "" // generated Gmail password
-        
+
     },
     alias: "LimMailer"
 });
@@ -122,7 +122,7 @@ const mailer = new LimMailer({
         // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
         user: "", // generated Gmail user
         pass: "" // generated Gmail password
-        
+
     },
     alias: "LimMailer"
 });
