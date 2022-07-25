@@ -131,13 +131,14 @@ mailer.setInbox({
     to: [], // list of receivers
     cc: []
 });
-const info = await mailer.sendMail({
-    subject: "Hello world", // Subject line
-    text: "Welcome to lim-mailer!", // plain text body
-    html: "<b>Welcome to lim-mail</b>" // HTML body
-});
-
-console.log(info);
+(async () => {
+    const info = await mailer.sendMail({
+        subject: "Hello world", // Subject line
+        text: "Welcome to lim-mailer!", // plain text body
+        html: "<b>Welcome to lim-mail!</b>" // HTML body
+    });
+    console.log(info);
+})();
 ```
 
 ## Documentation
