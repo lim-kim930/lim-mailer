@@ -33,8 +33,6 @@ npm install lim-mailer
         "host": "smtp.gmail.com",
         "port": 465,
         "secure": true,
-        // Google Mail requires two-step verification：https://myaccount.google.com/security
-        // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
         "auth": {
             "user": "",
             "pass": ""
@@ -78,28 +76,68 @@ npm run test-ts
 "use strict";
 const LimMailer = require("lim-mailer");
 
-const mailer = new LimMailer(config.outbox);
+const mailer = new LimMailer({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+        // Google Mail requires two-step verification：https://myaccount.google.com/security
+        // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
+        user: "", // generated Gmail user
+        pass: "" // generated Gmail password
+        
+    },
+    alias: "LimMailer"
+});
 
-mailer.setInbox(config.inbox);
-mailer.sendMail(config.content).then(() => {
-    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess!\x1B[0m");
+mailer.setInbox({
+    to: [], // list of receivers
+    cc: []
+});
+mailer.sendMail({
+    subject: "Hello world", // Subject line
+    text: "Welcome to lim-mailer!", // plain text body
+    html: "<b>Welcome to lim-mailer!</b>" // HTML body
+}).then((info) => {
+    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess: \x1B[0m");
+    console.log(info);
 }).catch((err) => {
     console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[31merror: \x1B[0m" + err);
-}) 
+})
 ```
 
 - ##### Typescript
+  
+  ###### In ts, usually you only need to change the way dependencies are introduced, and you can use syntax such as async/await.
 
 ```javascript
 import LimMailer from "lim-mailer";
 
-const mailer = new LimMailer(config.outbox);
-mailer.setInbox(config.inbox);
-mailer.sendMail(config.content).then((info) => {
-    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[32msuccess!\x1B[0m");
-}).catch((err: Error) => {
-    console.log("\x1B[2m" + new Date().toLocaleString() + "\x1B[0m \x1B[31merror: \x1B[0m" + err);
-})
+const mailer = new LimMailer({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+        // Google Mail requires two-step verification：https://myaccount.google.com/security
+        // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
+        user: "", // generated Gmail user
+        pass: "" // generated Gmail password
+        
+    },
+    alias: "LimMailer"
+});
+
+mailer.setInbox({
+    to: [], // list of receivers
+    cc: []
+});
+const info = await mailer.sendMail({
+    subject: "Hello world", // Subject line
+    text: "Welcome to lim-mailer!", // plain text body
+    html: "<b>Welcome to lim-mail</b>" // HTML body
+});
+
+console.log(info);
 ```
 
 ## Documentation
