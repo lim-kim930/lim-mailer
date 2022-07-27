@@ -89,7 +89,6 @@ mailer.sendMail({
 // app.ts
 import LimMailer from "lim-mailer";
 
-// pass in the mailbox configuration when creating the instance:
 const mailer = new LimMailer({
     host: "smtp.gmail.com",
     port: 465,
@@ -105,19 +104,6 @@ const mailer = new LimMailer({
 }, {
     to: [], // list of receivers
     cc: []
-});
-
-// or set the outbox and inbox separately:
-mailer.setOutbox({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-        user: "",
-        pass: ""
-
-    },
-    alias: "LimMailer"
 });
 
 mailer.setInbox({
