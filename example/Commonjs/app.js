@@ -1,6 +1,7 @@
 "use strict";
 const LimMailer = require("lim-mailer");
 
+// pass in the mailbox configuration when creating the instance:
 const mailer = new LimMailer({
     host: "smtp.gmail.com",
     port: 465,
@@ -13,12 +14,28 @@ const mailer = new LimMailer({
         
     },
     alias: "LimMailer"
-});
-
-mailer.setInbox({
+}, {
     to: [], // list of receivers
     cc: []
 });
+
+// or set the outbox and inbox separately:
+// mailer.setOutbox({
+//     host: "smtp.gmail.com",
+//     port: 465,
+//     secure: true,
+//     auth: {
+//         user: "",
+//         pass: ""
+
+//     },
+//     alias: "LimMailer"
+// });
+
+// mailer.setInbox({
+//     to: [],
+//     cc: []
+// });
 mailer.sendMail({
     subject: "Hello world", // Subject line
     text: "Welcome to lim-mailer!", // plain text body
