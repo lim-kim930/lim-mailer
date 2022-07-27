@@ -106,11 +106,6 @@ const mailer = new LimMailer({
     cc: []
 });
 
-mailer.setInbox({
-    to: [],
-    cc: []
-});
-
 (async () => {
     const info = await mailer.sendMail({
         subject: "Hello world", // Subject line
