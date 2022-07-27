@@ -10,7 +10,7 @@
   "author": "LIMKIM",
   "license": "ISC",
   "dependencies": {
-    "lim-mailer": "^1.1.1"
+    "lim-mailer": "^1.2.0"
   },
   "devDependencies": {
     "ts-node-dev": "^2.0.0",

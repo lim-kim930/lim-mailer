@@ -10,6 +10,6 @@
   "author": "LIMKIM",
   "license": "ISC",
   "dependencies": {
-    "lim-mailer": "^1.1.0"
+    "lim-mailer": "^1.2.0"
   }
 }
