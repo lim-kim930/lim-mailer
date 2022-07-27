@@ -2,6 +2,8 @@
 
 #### A simple package mailer based on nodemailer. More intuitive and convenient.
 
+<br>
+
 ## Installation
 
 ### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
