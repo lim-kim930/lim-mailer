@@ -119,7 +119,7 @@ const mailer = new LimMailer({
 <br>
 
 ## Documentation
-### Most of the input data types are consistent with [nodemailer smtp](https://nodemailer.com/smtp/)
+### Most of the input data types are consistent with [nodemailer smtp](https://nodemailer.com/smtp/).
 
 <br>
 
