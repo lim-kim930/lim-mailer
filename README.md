@@ -10,59 +10,6 @@
 npm install lim-mailer
 ```
 
-## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
-
-### This is a simple function released with the npm package, with a small amount of code.
-
-### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#examples), I believe they will help you get started faster.
-
-### Please Note:
-
-- When you have usage problems in development, using test can help you troubleshoot the package itself.
-
-- Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
-
-### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
-
-```javascript
-// test/config.json
-{
-    "outbox": {
-        "host": "smtp.gmail.com",
-        "port": 465,
-        "secure": true,
-        "auth": {
-            "user": "",
-            "pass": ""
-        },
-        "alias": "LimMailer"
-    },
-
-    "inbox": {
-        "to": []
-    },
-
-    "content": {
-        "subject": "A Test",
-        "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930/lim-emailer'>LimMailer</a></h1>"
-    }
-}
-```
-
-### Then you can use the npm command to run the tests
-
-- #### For Commonjs
-
-```
-npm run test
-```
-
-- #### For Typescript/ESM
-
-```
-npm run test-ts
-```
-
 ## [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
 
 ### This is a complete example to send an email with plain text and HTML body.
@@ -185,3 +132,57 @@ mailer.setInbox({
 ```
 
 ## Documentation
+### Most of the input data types are consistent with [nodemailer smtp](https://nodemailer.com/smtp/)
+
+## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
+
+### This is a simple function released with the npm package, with a small amount of code.
+
+### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#examples), I believe they will help you get started faster.
+
+### Please Note:
+
+- When you have usage problems in development, using test can help you troubleshoot the package itself.
+
+- Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
+
+### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
+
+```javascript
+// test/config.json
+{
+    "outbox": {
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "secure": true,
+        "auth": {
+            "user": "",
+            "pass": ""
+        },
+        "alias": "LimMailer"
+    },
+
+    "inbox": {
+        "to": []
+    },
+
+    "content": {
+        "subject": "A Test",
+        "html": "<h1>This is a test email for <a href='https://github.com/lim-kim930/lim-emailer'>LimMailer</a></h1>"
+    }
+}
+```
+
+### Then you can use the npm command to run the tests
+
+- #### For Commonjs
+
+```
+npm run test
+```
+
+- #### For Typescript/ESM
+
+```
+npm run test-ts
+```
