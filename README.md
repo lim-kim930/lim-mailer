@@ -154,7 +154,7 @@ mailer.setInbox({
 
 - Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
 
-### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
+### For more information on configurable items, please check the [documentation](#documentation).
 
 ```javascript
 // test/config.json
