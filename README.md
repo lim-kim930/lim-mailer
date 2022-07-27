@@ -1,12 +1,12 @@
 # lim-mailer
 
-#### A simple package mailer based on nodemailer.
+#### A simple package mailer based on nodemailer. More intuitive and convenient.
 
-#### More intuitive and convenient.
+
 
 ## Installation
 
-#### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
+### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
 
 ```
 npm install lim-mailer
@@ -14,17 +14,17 @@ npm install lim-mailer
 
 ## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
 
-#### This is a simple function released with the npm package, with a small amount of code.
+### This is a simple function released with the npm package, with a small amount of code.
 
-#### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#examples), I believe they will help you get started faster.
+### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](https://github.com/lim-kim930/lim-mailer#examples), I believe they will help you get started faster.
 
-#### Please Note:
+### Please Note:
 
 - When you have usage problems in development, using test can help you troubleshoot the package itself.
 
 - Before you `npm run test`, please configure the email address and other information to be used in the test in `test/config.json`.
 
-#### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
+### For more information on configurable items, please check the [documentation](https://github.com/lim-kim930/lim-mailer#documentation).
 
 ```javascript
 // test/config.json
@@ -51,15 +51,15 @@ npm install lim-mailer
 }
 ```
 
-#### Then you can use the npm command to run the tests
+### Then you can use the npm command to run the tests
 
-- ##### For Commonjs
+- #### For Commonjs
 
 ```
 npm run test
 ```
 
-- ##### For Typescript
+- #### For Typescript/ESM
 
 ```
 npm run test-ts
@@ -67,19 +67,17 @@ npm run test-ts
 
 ## [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
 
-#### This is a complete example to send an email with plain text and HTML body.
+### This is a complete example to send an email with plain text and HTML body.
 
-
-
-#### LimMailer rovides two methods to set the outbox and inbox:
+### LimMailer rovides two methods to set the outbox and inbox:
 
 - For the first method, you can pass in the mailbox configuration when creating the inst.
   
-  ###### But please note that when using this method, the outbox is required and must be the first parameter.
+  #### But please note that when using this method, the outbox is required and must be the first parameter.
 
 - Alternatively, you can use the following method to set the outbox and inbox separately.
 
-##### Commonjs
+#### Commonjs
 
 ```javascript
 // app.js
@@ -96,7 +94,7 @@ const mailer = new LimMailer({
         // Then create an application-specific password and fill in the pass filed：https://myaccount.google.com/apppasswords
         user: "", // generated Gmail user
         pass: "" // generated Gmail password
-        
+
     },
     alias: "LimMailer"
 }, {
@@ -105,22 +103,22 @@ const mailer = new LimMailer({
 });
 
 // or set the outbox and inbox separately:
-// mailer.setOutbox({
-//     host: "smtp.gmail.com",
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: "",
-//         pass: ""
+mailer.setOutbox({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+        user: "",
+        pass: ""
 
-//     },
-//     alias: "LimMailer"
-// });
+    },
+    alias: "LimMailer"
+});
 
-// mailer.setInbox({
-//     to: [],
-//     cc: []
-// });
+mailer.setInbox({
+    to: [],
+    cc: []
+});
 mailer.sendMail({
     subject: "Hello world", // Subject line
     text: "Welcome to lim-mailer!", // plain text body
@@ -133,9 +131,9 @@ mailer.sendMail({
 })
 ```
 
-##### Typescript
+#### Typescript/ESM
 
-###### With Ts, usually you only need to change the way dependencies are introduced, and you can use syntax such as async/await.
+##### With Ts, usually you only need to change the way dependencies are introduced, and you can use syntax such as async/await.
 
 ```javascript
 // app.ts
@@ -160,22 +158,22 @@ const mailer = new LimMailer({
 });
 
 // or set the outbox and inbox separately:
-// mailer.setOutbox({
-//     host: "smtp.gmail.com",
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: "",
-//         pass: ""
+mailer.setOutbox({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+        user: "",
+        pass: ""
 
-//     },
-//     alias: "LimMailer"
-// });
+    },
+    alias: "LimMailer"
+});
 
-// mailer.setInbox({
-//     to: [],
-//     cc: []
-// });
+mailer.setInbox({
+    to: [],
+    cc: []
+});
 
 (async () => {
     const info = await mailer.sendMail({

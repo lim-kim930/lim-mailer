@@ -20,22 +20,23 @@ const mailer = new LimMailer({
 });
 
 // or set the outbox and inbox separately:
-// mailer.setOutbox({
-//     host: "smtp.gmail.com",
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: "",
-//         pass: ""
+mailer.setOutbox({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+        user: "",
+        pass: ""
 
-//     },
-//     alias: "LimMailer"
-// });
+    },
+    alias: "LimMailer"
+});
 
-// mailer.setInbox({
-//     to: [],
-//     cc: []
-// });
+mailer.setInbox({
+    to: [],
+    cc: []
+});
+
 mailer.sendMail({
     subject: "Hello world", // Subject line
     text: "Welcome to lim-mailer!", // plain text body
