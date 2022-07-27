@@ -2,8 +2,6 @@
 
 #### A simple package mailer based on nodemailer. More intuitive and convenient.
 
-
-
 ## Installation
 
 ### LimMailer requires **Node.js v6.0.0** or higher for ES2015 and async function support.
@@ -119,6 +117,7 @@ mailer.setInbox({
     to: [],
     cc: []
 });
+
 mailer.sendMail({
     subject: "Hello world", // Subject line
     text: "Welcome to lim-mailer!", // plain text body
