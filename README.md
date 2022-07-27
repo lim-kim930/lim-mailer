@@ -12,6 +12,8 @@
 npm install lim-mailer
 ```
 
+<br>
+
 ## [Examples](https://github.com/lim-kim930/lim-mailer/tree/main/example)
 
 ### This is a complete example to send an email with plain text and HTML body.
@@ -133,8 +135,12 @@ mailer.setInbox({
 })();
 ```
 
+<br>
+
 ## Documentation
 ### Most of the input data types are consistent with [nodemailer smtp](https://nodemailer.com/smtp/)
+
+<br>
 
 ## [Test](https://github.com/lim-kim930/lim-mailer/tree/main/test)
 
