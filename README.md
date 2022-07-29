@@ -20,7 +20,7 @@ npm install lim-mailer
 
 ### LimMailer rovides two methods to set the outbox and inbox:
 
-- For the first method, you can pass in the mailbox configuration when creating the inst.
+- For the first method, you can pass in the mailbox configuration when creating the instance.
   
   #### But please note that when using this method, the outbox is required and must be the first parameter.
 
@@ -127,7 +127,7 @@ const mailer = new LimMailer({
 
 ### This is a simple function released with the npm package, with a small amount of code.
 
-### If you are using LimMailer for the first time, you can skip reading it and go to the [examples](#examples), I believe they will help you get started faster.
+### If you are using LimMailer for the first time, then you don't have to read it, I believe the [examples](#examples) will help you get started faster.
 
 ### Please Note:
 
