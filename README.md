@@ -1,5 +1,6 @@
 # lim-mailer
 
+<code><img height="30" src="https://img.shields.io/npm/v/lim-mailer" alt="lim-mailer" /></code>
 #### A simple package mailer based on nodemailer. More intuitive and convenient.
 
 <br>
