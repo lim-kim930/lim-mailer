@@ -39,7 +39,7 @@ const emailAddressValidator = (address: string | string[] | undefined) => {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     return reg.test(address);
 };
-
+// TODO: 代码分离, 支持设置邮箱时只传部分属性
 class LimMailer {
     private outbox: Outbox | undefined;
     private transporter: Transporter | undefined;
