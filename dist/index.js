@@ -30,6 +30,7 @@ var emailAddressValidator = function (address) {
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     return reg.test(address);
 };
+// TODO: 代码分离, 支持设置邮箱时只传部分属性
 var LimMailer = /** @class */ (function () {
     function LimMailer(outbox, inbox) {
         if (outbox) {
