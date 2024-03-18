@@ -20,7 +20,7 @@ npm install lim-mailer
 
 ### This is a complete example to send an email with plain text and HTML body.
 
-### LimMailer rovides two methods to set the outbox and inbox:
+### LimMailer provides two methods to set the outbox and inbox:
 
 - For the first method, you can pass in the mailbox configuration when creating the instance.
   
